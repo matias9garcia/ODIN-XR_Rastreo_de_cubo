@@ -1,0 +1,13 @@
+# --- Núcleo OpenCV + ArUco ---
+opencv-contrib-python==4.7.0.72
+numpy==1.26.4
+
+# --- Comunicación HTTP ---
+requests==2.31.0
+
+# --- Utilidades matemáticas y científicas ---
+scipy==1.11.4
+
+# --- Compatibilidad general ---
+matplotlib==3.7.2
+pandas==2.1.4
