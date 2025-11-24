@@ -11,3 +11,10 @@ scipy==1.11.4
 # --- Compatibilidad general ---
 matplotlib==3.7.2
 pandas==2.1.4
+
+# --- Servidor API ---
+Flask==3.0.2
+flask-cors==4.0.0
+
+# --- Comunicación Serial con Arduino ---
+pyserial==3.5

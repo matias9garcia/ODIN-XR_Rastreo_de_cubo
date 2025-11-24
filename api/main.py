@@ -16,6 +16,36 @@ data_cubo = {
     "roll": 5.0
 }
 
+# JSON estático inicial
+data_braccio = {
+    "timestamp": int(time.time() * 1000),  # milisegundos desde epoch
+    "m1": 0,
+    "m2": 15,
+    "m3": 180,
+    "m4": 0,
+    "m5": 0,
+    "m6": 10,
+    #"apertura_pinza": 1, # 0 = cerrado, 1 = abierto
+}
+
+@app.route("/api/angulos_braccio", methods=["GET"])
+def get_angulos():
+    return jsonify(data_braccio)
+
+@app.route("/api/angulos_braccio", methods=["POST"])
+def update_angulos():
+    global data_braccio
+    nueva_data = request.json
+
+    if not nueva_data:
+        return jsonify({"error": "No se recibieron datos"}), 400
+
+    # Se asegura de incluir timestamp en milisegundos
+    nueva_data["timestamp"] = int(time.time() * 1000)
+    data_braccio = nueva_data
+
+    return jsonify({"status": "OK", "data": data_braccio}), 200
+
 @app.route("/api/posicion", methods=["GET"])
 def get_posicion():
     return jsonify(data_cubo)
